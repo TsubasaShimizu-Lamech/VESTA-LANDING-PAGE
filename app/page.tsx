@@ -7,39 +7,39 @@ export default function VestaLandingPage() {
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4">
+        <div className="max-w-6xl mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
               <Image
-                src="/placeholder.svg?height=50&width=150"
+                src="/images/vesta-logo.png"
                 alt="VESTA Logo"
-                width={150}
-                height={50}
-                className="h-12 w-auto"
+                width={400}
+                height={160}
+                className="h-16 w-auto"
               />
             </div>
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#about" className="text-gray-700 hover:text-red-800 font-medium transition-colors">
+              <a href="#about" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
                 VESTAとは
               </a>
-              <a href="#therapy" className="text-gray-700 hover:text-red-800 font-medium transition-colors">
+              <a href="#therapy" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
                 M&R Therapy
               </a>
-              <a href="#modes" className="text-gray-700 hover:text-red-800 font-medium transition-colors">
+              <a href="#modes" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
                 モード・プローブ
               </a>
-              <a href="#applications" className="text-gray-700 hover:text-red-800 font-medium transition-colors">
+              <a href="#applications" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
                 適用分野
               </a>
-              <a href="#specs" className="text-gray-700 hover:text-red-800 font-medium transition-colors">
+              <a href="#specs" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
                 仕様
               </a>
               <a
                 href="#contact"
-                className="bg-red-800 hover:bg-red-900 text-white px-6 py-2 rounded-md font-medium transition-colors"
+                className="bg-red-800 hover:bg-red-900 text-white px-6 py-2 rounded-md font-semibold text-lg transition-colors"
               >
                 お問い合わせ
               </a>
@@ -56,21 +56,25 @@ export default function VestaLandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 via-white to-red-50 text-gray-900 py-12 px-4">
-        <div className="max-w-6xl mx-auto text-center">
+      <section className="relative bg-cover bg-center bg-no-repeat text-gray-900 py-12 px-4 min-h-[800px]" style={{ backgroundImage: 'url(/images/VESTA_RF_TOP.JPG)' }}>
+        <div className="max-w-6xl mx-auto text-center mt-40">
           <div className="mb-4">
-            <Image
-              src="/images/vesta-logo.png"
-              alt="VESTA M&R Therapy"
-              width={800}
-              height={300}
-              className="mx-auto"
-              priority
-            />
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg px-4 py-0 shadow-2xl inline-block">
+              <Image
+                src="/images/vesta-logo.png"
+                alt="VESTA M&R Therapy"
+                width={600}
+                height={80}
+                className="mx-auto drop-shadow-lg"
+                priority
+              />
+            </div>
           </div>
-          <p className="text-xl md:text-2xl mb-8 text-gray-700 font-medium">ラジオ波深部熱筋膜リリース施術</p>
-          <div className="bg-red-800/90 backdrop-blur-sm rounded-full px-8 py-4 inline-block shadow-lg">
-            <p className="text-2xl md:text-3xl font-semibold text-white">「筋膜リリースに熱が加わる」</p>
+          <div className="bg-black/50 backdrop-blur-sm rounded-lg p-6 shadow-2xl inline-block mx-auto max-w-2xl">
+            <p className="text-xl md:text-2xl mb-8 text-white font-medium drop-shadow-lg">ラジオ波深部熱筋膜リリース施術</p>
+            <div className="bg-red-800/90 backdrop-blur-sm rounded-full px-8 py-4 inline-block shadow-lg">
+              <p className="text-2xl md:text-3xl font-semibold text-white drop-shadow-lg">「筋膜リリースに熱が加わる」</p>
+            </div>
           </div>
         </div>
         {/* 装飾的な要素を追加 */}
@@ -79,7 +83,7 @@ export default function VestaLandingPage() {
       </section>
 
       {/* What is VESTA Section */}
-      <section id="about" className="py-16 px-4">
+      <section id="about" className="py-16 px-4 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-red-900 mb-6">vestaとは？</h2>
@@ -97,7 +101,7 @@ export default function VestaLandingPage() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="/placeholder.svg?height=400&width=600"
+              src="/images/VESTA03.png"
               alt="VESTA機器"
               width={600}
               height={400}
@@ -108,7 +112,7 @@ export default function VestaLandingPage() {
       </section>
 
       {/* M&R Therapy Section */}
-      <section id="therapy" className="py-16 px-4 bg-red-50">
+      <section id="therapy" className="py-16 px-4 bg-red-50 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-red-900 text-center mb-12">M&R Therapy</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -210,7 +214,7 @@ export default function VestaLandingPage() {
       </section>
 
       {/* Optimized Modes Section */}
-      <section id="modes" className="py-16 px-4">
+      <section id="modes" className="py-16 px-4 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-red-900 text-center mb-6">最適化されたモードとかっさプローブ</h2>
           <div className="text-center mb-12">
@@ -228,13 +232,34 @@ export default function VestaLandingPage() {
               <CardContent className="p-8 text-center">
                 <h3 className="text-2xl font-bold text-red-800 mb-4">RET RF -モノポーラ</h3>
                 <p className="text-gray-600 mb-6">(MFR電極と円形電極)</p>
-                <div className="flex justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <Image
-                    src="/placeholder.svg?height=250&width=350"
-                    alt="モノポーラ"
+                    src="/images/VESTA_RF_MFR_D1.JPG"
+                    alt="RET RF 1"
                     width={350}
                     height={250}
-                    className="rounded-lg"
+                    className="rounded-lg w-full h-auto"
+                  />
+                  <Image
+                    src="/images/VESTA_RF_MFR_D2.JPG"
+                    alt="RET RF 2"
+                    width={350}
+                    height={250}
+                    className="rounded-lg w-full h-auto"
+                  />
+                  <Image
+                    src="/images/VESTA_RF_MFR_D3.JPG"
+                    alt="RET RF 3"
+                    width={350}
+                    height={250}
+                    className="rounded-lg w-full h-auto"
+                  />
+                  <Image
+                    src="/images/VESTA_RF_MFR_D4.JPG"
+                    alt="RET RF 4"
+                    width={350}
+                    height={250}
+                    className="rounded-lg w-full h-auto"
                   />
                 </div>
               </CardContent>
@@ -245,11 +270,11 @@ export default function VestaLandingPage() {
                 <h3 className="text-2xl font-bold text-red-800 mb-4">RET RF -バイポーラ、マルチポーラ</h3>
                 <div className="flex justify-center mt-6">
                   <Image
-                    src="/placeholder.svg?height=250&width=350"
+                    src="/images/VESTA_RF_MP.JPG"
                     alt="バイポーラ・マルチポーラ"
                     width={350}
                     height={250}
-                    className="rounded-lg"
+                    className="rounded-lg w-full h-auto"
                   />
                 </div>
               </CardContent>
@@ -258,13 +283,20 @@ export default function VestaLandingPage() {
             <Card className="border-red-200 shadow-lg">
               <CardContent className="p-8 text-center">
                 <h3 className="text-2xl font-bold text-red-800 mb-4">LF電気施術</h3>
-                <div className="flex justify-center mt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                   <Image
-                    src="/placeholder.svg?height=250&width=350"
-                    alt="LF電気施術"
+                    src="/images/VESTA_LF_Gloves_1.JPG"
+                    alt="LF電気施術1"
                     width={350}
                     height={250}
-                    className="rounded-lg"
+                    className="rounded-lg w-full h-auto"
+                  />
+                  <Image
+                    src="/images/VESTA_LF_Gloves_2.JPG"
+                    alt="LF電気施術2"
+                    width={350}
+                    height={250}
+                    className="rounded-lg w-full h-auto"
                   />
                 </div>
               </CardContent>
@@ -274,7 +306,7 @@ export default function VestaLandingPage() {
       </section>
 
       {/* Application Areas Section */}
-      <section id="applications" className="py-16 px-4 bg-red-50">
+      <section id="applications" className="py-16 px-4 bg-red-50 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-red-900 text-center mb-12">適用分野</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
@@ -327,22 +359,11 @@ export default function VestaLandingPage() {
               </CardContent>
             </Card>
           </div>
-
-          {/* 適用分野の画像エリアを追加 */}
-          <div className="flex justify-center">
-            <Image
-              src="/placeholder.svg?height=500&width=900"
-              alt="適用分野の詳細図解"
-              width={900}
-              height={500}
-              className="rounded-lg shadow-lg"
-            />
-          </div>
         </div>
       </section>
 
       {/* Specifications Section */}
-      <section id="specs" className="py-16 px-4">
+      <section id="specs" className="py-16 px-4 scroll-mt-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-red-900 text-center mb-12">仕様</h2>
           <Card className="border-red-200 shadow-lg">
@@ -383,13 +404,13 @@ export default function VestaLandingPage() {
           <h2 className="text-4xl font-bold mb-8">会社情報</h2>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
             <h3 className="text-2xl font-bold mb-4">株式会社Lamech</h3>
-            <p className="text-lg">〒634-0803 奈良県橿原市上品寺町81-16-201</p>
+            <p className="text-red-200">〒634-0803 奈良県橿原市上品寺町81-16-201</p>
           </div>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section id="contact" className="py-16 px-4 bg-white">
+      <section id="contact" className="py-16 px-4 bg-white scroll-mt-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-red-900 text-center mb-12">お問い合わせ</h2>
           <Card className="border-red-200 shadow-lg">
@@ -480,7 +501,6 @@ export default function VestaLandingPage() {
         <div className="max-w-6xl mx-auto text-center">
           <h3 className="text-2xl font-bold mb-4">株式会社Lamech</h3>
           <p className="text-red-200">〒634-0803 奈良県橿原市上品寺町81-16-201</p>
-          <p className="text-red-300 mt-4">VESTA M&R Therapy - ラジオ波深部熱筋膜リリース施術</p>
         </div>
       </footer>
     </div>

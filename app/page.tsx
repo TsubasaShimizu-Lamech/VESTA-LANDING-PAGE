@@ -7,6 +7,7 @@ import { useState } from "react"
 export default function VestaLandingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // GoogleフォームのformResponseエンドポイント（実際のIDに置き換えてください）
   const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSdvSWetChs9cUQKsut3eFxZonm8_YVAs3msSpjwpItVLOdmtQ/formResponse";
@@ -17,6 +18,9 @@ export default function VestaLandingPage() {
   // 516974113: 電話番号
   // 698898853: メールアドレス
   // 802279590: ご質問・ご相談内容
+
+  const handleMenuToggle = () => setMenuOpen((prev) => !prev);
+  const handleMenuClose = () => setMenuOpen(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -79,13 +83,29 @@ export default function VestaLandingPage() {
             </nav>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden p-2 rounded-md text-gray-700 hover:text-red-800 hover:bg-gray-100">
+            <button
+              className="md:hidden p-2 rounded-md text-gray-700 hover:text-red-800 hover:bg-gray-100"
+              onClick={handleMenuToggle}
+              aria-label="メニューを開く"
+              aria-expanded={menuOpen}
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
         </div>
+        {/* モバイル用メニュー */}
+        {menuOpen && (
+          <nav className="md:hidden bg-white shadow-lg border-t border-gray-200 px-4 py-6 space-y-4 text-center animate-fade-in z-50">
+            <a href="#about" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>VESTAとは</a>
+            <a href="#therapy" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>M&R Therapy</a>
+            <a href="#modes" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>モード・プローブ</a>
+            <a href="#applications" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>適用分野</a>
+            <a href="#specs" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>仕様</a>
+            <a href="#contact" className="block bg-red-800 hover:bg-red-900 text-white px-6 py-2 rounded-md font-semibold text-lg transition-colors" onClick={handleMenuClose}>お問い合わせ</a>
+          </nav>
+        )}
       </header>
 
       {/* Hero Section */}

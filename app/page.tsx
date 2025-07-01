@@ -1,8 +1,41 @@
+"use client";
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { useState } from "react"
 
 export default function VestaLandingPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle");
+
+  // GoogleフォームのformResponseエンドポイント（実際のIDに置き換えてください）
+  const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSdvSWetChs9cUQKsut3eFxZonm8_YVAs3msSpjwpItVLOdmtQ/formResponse";
+
+  // 各項目のentry ID
+  // 378164639: お名前
+  // 559655339: 店舗名・クリニック名
+  // 516974113: 電話番号
+  // 698898853: メールアドレス
+  // 802279590: ご質問・ご相談内容
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    const formData = new FormData(e.currentTarget);
+
+    await fetch(GOOGLE_FORM_ACTION, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData,
+    });
+
+    setSubmitStatus("success");
+    e.currentTarget.reset();
+    setIsSubmitting(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-red-50">
       {/* Header */}
@@ -415,7 +448,7 @@ export default function VestaLandingPage() {
           <h2 className="text-4xl font-bold text-red-900 text-center mb-12">お問い合わせ</h2>
           <Card className="border-red-200 shadow-lg">
             <CardContent className="p-8">
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -424,7 +457,7 @@ export default function VestaLandingPage() {
                     <input
                       type="text"
                       id="name"
-                      name="name"
+                      name="entry.378164639"
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                     />
@@ -436,12 +469,11 @@ export default function VestaLandingPage() {
                     <input
                       type="text"
                       id="clinic"
-                      name="clinic"
+                      name="entry.559655339"
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                     />
                   </div>
                 </div>
-
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
@@ -450,7 +482,7 @@ export default function VestaLandingPage() {
                     <input
                       type="tel"
                       id="phone"
-                      name="phone"
+                      name="entry.516974113"
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                     />
@@ -462,33 +494,37 @@ export default function VestaLandingPage() {
                     <input
                       type="email"
                       id="email"
-                      name="email"
+                      name="entry.698898853"
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                     />
                   </div>
                 </div>
-
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     ご質問・ご相談内容
                   </label>
                   <textarea
                     id="message"
-                    name="message"
+                    name="entry.802279590"
                     rows={6}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                     placeholder="ご質問やご相談がございましたら、お気軽にお書きください。"
                   ></textarea>
                 </div>
-
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-md transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+                    disabled={isSubmitting}
+                    className="bg-red-800 hover:bg-red-900 disabled:bg-gray-400 text-white font-bold py-3 px-8 rounded-md transition duration-300 ease-in-out transform hover:scale-105 shadow-lg disabled:transform-none"
                   >
-                    お問い合わせを送信
+                    {isSubmitting ? "送信完了" : "お問い合わせを送信"}
                   </button>
+                  {submitStatus === "success" && (
+                    <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
+                      お問い合わせを送信しました。ありがとうございます。
+                    </div>
+                  )}
                 </div>
               </form>
             </CardContent>

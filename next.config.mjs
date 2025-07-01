@@ -12,7 +12,8 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
-  ...(process.env.NODE_ENV === 'production' && {
+  // カスタムドメインを使用する場合はbasePathとassetPrefixを無効化
+  ...(process.env.NODE_ENV === 'production' && !process.env.CUSTOM_DOMAIN && {
     basePath: repoName,
     assetPrefix: repoName + '/',
   }),

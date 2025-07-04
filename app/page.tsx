@@ -526,7 +526,7 @@ export default function VestaLandingPage() {
                     <label className="flex items-center space-x-2 cursor-pointer">
                       <input
                         type="radio"
-                        name="entry.inquiry_type"
+                        name="entry.1191488629"
                         value="デモンストレーション希望"
                         required
                         className="text-red-600 focus:ring-red-500"
@@ -536,7 +536,7 @@ export default function VestaLandingPage() {
                     <label className="flex items-center space-x-2 cursor-pointer">
                       <input
                         type="radio"
-                        name="entry.inquiry_type"
+                        name="entry.1191488629"
                         value="資料請求"
                         required
                         className="text-red-600 focus:ring-red-500"
@@ -546,7 +546,7 @@ export default function VestaLandingPage() {
                     <label className="flex items-center space-x-2 cursor-pointer">
                       <input
                         type="radio"
-                        name="entry.inquiry_type"
+                        name="entry.1191488629"
                         value="その他"
                         required
                         className="text-red-600 focus:ring-red-500"
@@ -587,7 +587,7 @@ export default function VestaLandingPage() {
                   <input
                     type="text"
                     id="address"
-                    name="entry.address"
+                    name="entry.1237897422"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                     placeholder="〒000-0000 都道府県市区町村番地"
                   />

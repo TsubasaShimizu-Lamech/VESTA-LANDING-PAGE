@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://vesta-mr.com',
+  siteUrl: 'https://vesta.lamech.jp',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [

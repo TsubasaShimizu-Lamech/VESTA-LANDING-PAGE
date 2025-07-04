@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vesta.lamech.jp'),
   title: 'VESTA(ベスタ) - M&R Therapy | ラジオ波深部熱筋膜リリース施術',
   description: 'VESTA(ベスタ)は温熱筋膜リリースに特化した機器です。MFRテクニックとRET RF深部加温を同時に適用するM&R Therapyで、短時間でより強力な癒し効果を実現します。',
   generator: 'v0.dev',
@@ -28,7 +29,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'VESTA(ベスタ) - M&R Therapy | ラジオ波深部熱筋膜リリース施術',
     description: 'VESTA(ベスタ)は温熱筋膜リリースに特化した機器です。MFRテクニックとRET RF深部加温を同時に適用するM&R Therapyで、短時間でより強力な癒し効果を実現します。',
-    url: 'https://vesta-mr.com',
     siteName: 'VESTA(ベスタ)',
     images: [
       {

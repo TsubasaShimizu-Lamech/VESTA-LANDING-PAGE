@@ -1,6 +1,9 @@
-# Allow all crawlers
+# *
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://vesta.lamech.jp/sitemap.xml 
+# Host
+Host: https://vesta.lamech.jp
+
+# Sitemaps
+Sitemap: https://vesta.lamech.jp/sitemap.xml

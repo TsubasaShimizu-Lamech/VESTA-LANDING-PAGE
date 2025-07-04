@@ -522,7 +522,7 @@ export default function VestaLandingPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-4">
                     お問い合わせ種別 <span className="text-red-600">*</span>
                   </label>
-                  <div className="flex space-x-8">
+                  <div className="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
                     <label className="flex items-center space-x-2 cursor-pointer">
                       <input
                         type="radio"

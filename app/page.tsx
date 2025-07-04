@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { useState } from "react"
 
 export default function VestaLandingPage() {
@@ -50,7 +51,7 @@ export default function VestaLandingPage() {
             <div className="flex items-center">
               <Image
                 src="/images/vesta-logo.png"
-                alt="VESTA Logo"
+                alt="VESTA(ベスタ) Logo"
                 width={400}
                 height={160}
                 className="h-16 w-auto"
@@ -60,7 +61,7 @@ export default function VestaLandingPage() {
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#about" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
-                VESTAとは
+                VESTA(ベスタ)とは
               </a>
               <a href="#therapy" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
                 M&R Therapy
@@ -73,6 +74,9 @@ export default function VestaLandingPage() {
               </a>
               <a href="#specs" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
                 仕様
+              </a>
+              <a href="#faq" className="text-gray-700 hover:text-red-800 font-semibold text-lg transition-colors">
+                FAQ
               </a>
               <a
                 href="#contact"
@@ -98,11 +102,12 @@ export default function VestaLandingPage() {
         {/* モバイル用メニュー */}
         {menuOpen && (
           <nav className="md:hidden bg-white shadow-lg border-t border-gray-200 px-4 py-6 space-y-4 text-center animate-fade-in z-50">
-            <a href="#about" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>VESTAとは</a>
+            <a href="#about" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>VESTA(ベスタ)とは</a>
             <a href="#therapy" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>M&R Therapy</a>
             <a href="#modes" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>モード・プローブ</a>
             <a href="#applications" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>適用分野</a>
             <a href="#specs" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>仕様</a>
+            <a href="#faq" className="block text-gray-700 hover:text-red-800 font-semibold text-lg py-2" onClick={handleMenuClose}>FAQ</a>
             <a href="#contact" className="block bg-red-800 hover:bg-red-900 text-white px-6 py-2 rounded-md font-semibold text-lg transition-colors" onClick={handleMenuClose}>お問い合わせ</a>
           </nav>
         )}
@@ -115,7 +120,7 @@ export default function VestaLandingPage() {
             <div className="bg-white/80 backdrop-blur-sm rounded-lg px-4 py-0 shadow-2xl inline-block">
               <Image
                 src="/images/vesta-logo.png"
-                alt="VESTA M&R Therapy"
+                alt="VESTA(ベスタ) M&R Therapy"
                 width={600}
                 height={80}
                 className="mx-auto drop-shadow-lg"
@@ -139,7 +144,7 @@ export default function VestaLandingPage() {
       <section id="about" className="py-16 px-4 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-red-900 mb-6">vestaとは？</h2>
+            <h2 className="text-4xl font-bold text-red-900 mb-6">VESTA(ベスタ)とは？</h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-lg text-gray-700 mb-4">
                 <strong className="text-red-800">温熱筋膜リリース</strong>に特化した機器です。
@@ -155,7 +160,7 @@ export default function VestaLandingPage() {
           <div className="flex justify-center">
             <Image
               src="/images/VESTA03.png"
-              alt="VESTA機器"
+              alt="VESTA(ベスタ)機器"
               width={600}
               height={400}
               className="rounded-lg shadow-lg"
@@ -271,7 +276,7 @@ export default function VestaLandingPage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-red-900 text-center mb-6">最適化されたモードとかっさプローブ</h2>
           <div className="text-center mb-12">
-            <p className="text-xl text-gray-700 mb-4">VESTA一つで、</p>
+            <p className="text-xl text-gray-700 mb-4">VESTA(ベスタ)一つで、</p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <Badge className="bg-red-600 text-white px-4 py-2 text-lg">より短時間で！</Badge>
               <Badge className="bg-red-600 text-white px-4 py-2 text-lg">より快適に！</Badge>
@@ -364,51 +369,53 @@ export default function VestaLandingPage() {
           <h2 className="text-4xl font-bold text-red-900 text-center mb-12">適用分野</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             <Card className="border-red-200 shadow-lg bg-white hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-red-800 mb-2">筋・筋膜症の発痛点</h3>
-                <p className="text-sm text-gray-600">Trigger Points（TrPs）</p>
+              <CardContent className="p-6 text-center flex items-center justify-center min-h-[120px]">
+                <div>
+                  <h3 className="text-lg font-bold text-red-800 mb-2">筋・筋膜症の発痛点</h3>
+                  <p className="text-sm text-gray-600">Trigger Points（TrPs）</p>
+                </div>
               </CardContent>
             </Card>
 
             <Card className="border-red-200 shadow-lg bg-white hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-red-800 mb-2">神経機能の障害</h3>
+              <CardContent className="p-6 text-center flex items-center justify-center min-h-[120px]">
+                <h3 className="text-lg font-bold text-red-800">神経機能の障害</h3>
               </CardContent>
             </Card>
 
             <Card className="border-red-200 shadow-lg bg-white hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-red-800 mb-2">線維筋肉痛</h3>
+              <CardContent className="p-6 text-center flex items-center justify-center min-h-[120px]">
+                <h3 className="text-lg font-bold text-red-800">線維筋肉痛</h3>
               </CardContent>
             </Card>
 
             <Card className="border-red-200 shadow-lg bg-white hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-red-800 mb-2">（スポーツ）リハビリ治療および管理の補助</h3>
+              <CardContent className="p-6 text-center flex items-center justify-center min-h-[120px]">
+                <h3 className="text-lg font-bold text-red-800">（スポーツ）リハビリ治療および管理の補助</h3>
               </CardContent>
             </Card>
 
             <Card className="border-red-200 shadow-lg bg-white hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-red-800 mb-2">筋肉と関節の炎症</h3>
+              <CardContent className="p-6 text-center flex items-center justify-center min-h-[120px]">
+                <h3 className="text-lg font-bold text-red-800">筋肉と関節の炎症</h3>
               </CardContent>
             </Card>
 
             <Card className="border-red-200 shadow-lg bg-white hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-red-800 mb-2">運動機能の低下</h3>
+              <CardContent className="p-6 text-center flex items-center justify-center min-h-[120px]">
+                <h3 className="text-lg font-bold text-red-800">運動機能の低下</h3>
               </CardContent>
             </Card>
 
             <Card className="border-red-200 shadow-lg bg-white hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-red-800 mb-2">筋骨格系疾患</h3>
+              <CardContent className="p-6 text-center flex items-center justify-center min-h-[120px]">
+                <h3 className="text-lg font-bold text-red-800">筋骨格系疾患</h3>
               </CardContent>
             </Card>
 
             <Card className="border-red-200 shadow-lg bg-white hover:shadow-xl transition-shadow">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-lg font-bold text-red-800 mb-2">ストレス及び鎮痛</h3>
+              <CardContent className="p-6 text-center flex items-center justify-center min-h-[120px]">
+                <h3 className="text-lg font-bold text-red-800">ストレス及び鎮痛</h3>
               </CardContent>
             </Card>
           </div>
@@ -451,14 +458,56 @@ export default function VestaLandingPage() {
         </div>
       </section>
 
-      {/* Company Information Section */}
-      <section className="py-16 px-4 bg-red-900 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">会社情報</h2>
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-            <h3 className="text-2xl font-bold mb-4">株式会社Lamech</h3>
-            <p className="text-red-200">〒634-0803 奈良県橿原市上品寺町81-16-201</p>
-          </div>
+      {/* FAQ Section */}
+      <section id="faq" className="py-16 px-4 bg-red-50 scroll-mt-24">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-red-900 text-center mb-12">よくある質問</h2>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="demo" className="bg-white rounded-lg shadow-lg mb-4">
+              <AccordionTrigger className="px-6 py-4 text-left text-xl font-bold text-red-800 hover:text-red-900">
+                デモンストレーションは可能ですか？
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-700">はい、可能です。お問い合わせフォームよりデモンストレーション希望をご選択いただき、ご希望の日時などをご記入ください。</p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="flow" className="bg-white rounded-lg shadow-lg mb-4">
+              <AccordionTrigger className="px-6 py-4 text-left text-xl font-bold text-red-800 hover:text-red-900">
+                導入までの流れを教えてください
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-700">お問い合わせ → デモンストレーション → お見積り → ご契約 → 納品・設置 という流れとなります。詳細はお問い合わせください。</p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="maintenance" className="bg-white rounded-lg shadow-lg mb-4">
+              <AccordionTrigger className="px-6 py-4 text-left text-xl font-bold text-red-800 hover:text-red-900">
+                メンテナンスサービスはありますか？
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-700">はい、定期的なメンテナンスサービスをご用意しております。機器の状態確認や調整を行い、常に最適な状態でご使用いただけます。</p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="training" className="bg-white rounded-lg shadow-lg mb-4">
+              <AccordionTrigger className="px-6 py-4 text-left text-xl font-bold text-red-800 hover:text-red-900">
+                トレーニングは提供されますか？
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-700">はい、導入時に基本的な操作方法や施術テクニックのトレーニングを実施いたします。また、必要に応じてフォローアップ研修も承ります。</p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="warranty" className="bg-white rounded-lg shadow-lg mb-4">
+              <AccordionTrigger className="px-6 py-4 text-left text-xl font-bold text-red-800 hover:text-red-900">
+                保証期間はどのくらいですか？
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-700">製品保証期間は1年間となります。保証期間終了後も、メンテナンスサービスを通じて製品のサポートを継続してご提供いたします。</p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
@@ -469,6 +518,43 @@ export default function VestaLandingPage() {
           <Card className="border-red-200 shadow-lg">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-4">
+                    お問い合わせ種別 <span className="text-red-600">*</span>
+                  </label>
+                  <div className="flex space-x-8">
+                    <label className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="entry.inquiry_type"
+                        value="デモンストレーション希望"
+                        required
+                        className="text-red-600 focus:ring-red-500"
+                      />
+                      <span className="text-gray-700">デモンストレーション希望</span>
+                    </label>
+                    <label className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="entry.inquiry_type"
+                        value="資料請求"
+                        required
+                        className="text-red-600 focus:ring-red-500"
+                      />
+                      <span className="text-gray-700">資料請求</span>
+                    </label>
+                    <label className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="entry.inquiry_type"
+                        value="その他"
+                        required
+                        className="text-red-600 focus:ring-red-500"
+                      />
+                      <span className="text-gray-700">その他</span>
+                    </label>
+                  </div>
+                </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -483,16 +569,28 @@ export default function VestaLandingPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="clinic" className="block text-sm font-medium text-gray-700 mb-2">
-                      店舗名・クリニック名
+                    <label htmlFor="facility" className="block text-sm font-medium text-gray-700 mb-2">
+                      店舗名・施設名
                     </label>
                     <input
                       type="text"
-                      id="clinic"
+                      id="facility"
                       name="entry.559655339"
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                     />
                   </div>
+                </div>
+                <div>
+                  <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+                    住所
+                  </label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="entry.address"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                    placeholder="〒000-0000 都道府県市区町村番地"
+                  />
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>

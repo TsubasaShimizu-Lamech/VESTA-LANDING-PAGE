@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vesta.lamech.jp
+
+# Sitemaps
+Sitemap: https://vesta.lamech.jp/sitemap.xml
